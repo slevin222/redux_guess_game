@@ -4,17 +4,20 @@ const DEFAULT_STATE = {
     randomNumber: null,
     userGuess: '',
     numberOfGuesses: 0,
-    message: 'Enter a Number between 1 -10'
+    message: 'Enter a Number between 1 -100',
+
 }
 
 export default function (state = DEFAULT_STATE, action) {
     switch (action.type) {
+        case types.RESET:
+            return { ...state, randomNumber: action.payload, userGuess: '', numberOfGuesses: 0, message: 'Enter a Number between 1 -100' };
         case types.GET_RAN_NUMBER:
             return { ...state, randomNumber: action.payload };
         case types.USER_INPUT:
             return { ...state, userGuess: action.payload };
         case types.MAKE_GUESS:
-            let message = 'You got it!!';
+            let message = 'You got it!!!';
             if (state.randomNumber > state.userGuess) {
                 message = "Too Low";
             } else if (state.randomNumber < state.userGuess) {
