@@ -3,7 +3,7 @@ import types from './types';
 export function getRanNum() {
     return {
         type: types.GET_RAN_NUMBER,
-        payload: Math.floor(Math.random() * 10) + 1
+        payload: Math.floor(Math.random() * 100) + 1
     }
 }
 
@@ -17,5 +17,14 @@ export function userInput(event) {
 export function makeGuess() {
     return {
         type: types.MAKE_GUESS
+    }
+}
+
+export function reset() {
+    return {
+        type: types.RESET,
+        payload: Math.floor(Math.random() * 100) + 1
+
+
     }
 }
