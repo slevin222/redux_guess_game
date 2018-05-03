@@ -12,17 +12,16 @@ class Game extends Component {
     render() {
         return (
             <div className="container">
-                <div className="robot" style={{ backgroundImage: "url(" + robot + ")" }} ></div>
-                <div className="game">
-                    <h1>Guess Game</h1>
-                    {/* <p>Random Number: {this.props.ranNum}</p> */}
-                    <input onChange={this.props.userInput} value={this.props.userGuess} placeholder="Enter Guess" type="number" />
-                    <p>{this.props.msg}</p>
-                    <button onClick={this.props.makeGuess}>Make Guess</button>
-                    <br />
-                    <button onClick={this.props.reset}>Reset Game</button>
-                    <p>Number of guesses: {this.props.numberOfGuesses}</p>
-                    {/* <button onClick={this.props.getRanNum}>Get Random Number</button> */}
+                <div className="row">
+                    <div className="robot col-lg-5 col-md-12 mt-5" style={{ backgroundImage: "url(" + robot + ")" }} ></div>
+                    <div className="game col-lg-7 col-md-12">
+                        <h1>Guessing Game</h1>
+                        <input className="form-control form-control-lg" onChange={this.props.userInput} value={this.props.userGuess} placeholder="Enter Guess" type="number" />
+                        <h3>{this.props.msg}</h3>
+                        <button className="btn btn-outline-danger" onClick={this.props.reset}>Reset Game</button>
+                        <button className="btn btn-success float-right" onClick={this.props.makeGuess}>Make Guess</button>
+                        <h3>Number of guesses: {this.props.numberOfGuesses}</h3>
+                    </div>
                 </div>
             </div>
         )
